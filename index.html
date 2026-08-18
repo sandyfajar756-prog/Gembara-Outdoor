@@ -496,18 +496,18 @@ select:focus {
    DATABASE OFFLINE GEMBARA
 ===================================================== */
 
-const STORAGE_KEY = "GEMBARA_OUTDOOR_V5";
+const STORAGE_KEY = "GEMBARA_OUTDOOR_V6";
 
-let DB = {
-    barang: [],
-    pelanggan: [],
-    transaksi: []
-};
-
-localStorage.setItem(
-    STORAGE_KEY,
-    JSON.stringify(DB)
-);
+let DB =
+    JSON.parse(
+        localStorage.getItem(STORAGE_KEY)
+    )
+    ||
+    {
+        barang: [],
+        pelanggan: [],
+        transaksi: []
+    };
 
 /* =====================================================
    SIMPAN DATABASE
