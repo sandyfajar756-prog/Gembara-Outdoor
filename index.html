@@ -3147,7 +3147,260 @@ document.addEventListener(
 
     }
 );
+/* =====================================================
+   REVIEW NOTA GEMBARA
+===================================================== */
 
+function reviewNota(transaksi) {
+
+    if (!transaksi) {
+        alert("Data transaksi tidak ditemukan.");
+        return;
+    }
+
+    const daftarBarang =
+        transaksi.items ||
+        transaksi.barang ||
+        [];
+
+    document.getElementById("app").innerHTML = `
+
+        <div class="card">
+
+            <div
+                style="
+                text-align:center;
+                padding-bottom:15px;
+                border-bottom:2px solid var(--hijau);
+                "
+            >
+
+                <img
+                    src="disain%20new%20gembara%20logo.png"
+                    style="
+                    width:110px;
+                    max-height:90px;
+                    object-fit:contain;
+                    "
+                    alt="Gembara Outdoor"
+                >
+
+                <h2 style="margin:5px 0;">
+                    GEMBARA OUTDOOR
+                </h2>
+
+                <div class="subtext">
+                    Rental Perlengkapan Outdoor
+                </div>
+
+            </div>
+
+
+            <div style="margin-top:18px;">
+
+                <h3>🧾 NOTA RENTAL</h3>
+
+                <p>
+                    <b>No. Transaksi:</b>
+                    ${escapeHTML(
+                        transaksi.nomor ||
+                        transaksi.id ||
+                        "-"
+                    )}
+                </p>
+
+                <p>
+                    <b>Pelanggan:</b>
+                    ${escapeHTML(
+                        transaksi.pelanggan || "-"
+                    )}
+                </p>
+
+                <p>
+                    <b>No. HP:</b>
+                    ${escapeHTML(
+                        transaksi.nohp ||
+                        transaksi.telepon ||
+                        "-"
+                    )}
+                </p>
+
+                <p>
+                    <b>Tanggal Sewa:</b>
+                    ${formatDate(transaksi.mulai)}
+                </p>
+
+                <p>
+                    <b>Lama Sewa:</b>
+                    ${
+                        transaksi.hari ||
+                        transaksi.lama ||
+                        1
+                    }
+                    Hari
+                </p>
+
+                <p>
+                    <b>Tanggal Kembali:</b>
+                    ${formatDate(transaksi.kembali)}
+                </p>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Barang</th>
+                            <th>Qty</th>
+                            <th>Harga/Hari</th>
+                            <th>Subtotal</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        ${
+                            daftarBarang.length
+
+                            ?
+
+                            daftarBarang.map(function(item) {
+
+                                return `
+
+                                <tr>
+
+                                    <td>
+                                        ${escapeHTML(
+                                            item.nama ||
+                                            item.barang ||
+                                            "-"
+                                        )}
+                                    </td>
+
+                                    <td>
+                                        ${
+                                            item.qty ||
+                                            item.jumlah ||
+                                            1
+                                        }
+                                    </td>
+
+                                    <td>
+                                        ${rupiah(
+                                            item.harga ||
+                                            item.hargaHari ||
+                                            0
+                                        )}
+                                    </td>
+
+                                    <td>
+                                        ${rupiah(
+                                            item.subtotal ||
+                                            0
+                                        )}
+                                    </td>
+
+                                </tr>
+
+                                `;
+
+                            }).join("")
+
+                            :
+
+                            `
+
+                            <tr>
+
+                                <td
+                                    colspan="4"
+                                    class="empty"
+                                >
+                                    Tidak ada barang.
+                                </td>
+
+                            </tr>
+
+                            `
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <div
+                style="
+                text-align:right;
+                margin-top:18px;
+                font-size:20px;
+                "
+            >
+
+                <b>
+                    TOTAL:
+                    ${rupiah(transaksi.total)}
+                </b>
+
+            </div>
+
+
+            <div class="notice">
+
+                💳 Cara Pembayaran:
+
+                <b>
+                    ${escapeHTML(
+                        transaksi.pembayaran || "-"
+                    )}
+                </b>
+
+            </div>
+
+
+            <div
+                style="
+                display:flex;
+                gap:8px;
+                flex-wrap:wrap;
+                margin-top:18px;
+                "
+            >
+
+                <button
+                    class="btn btn-primary"
+                    onclick="window.print()"
+                >
+                    🖨️ Cetak Nota
+                </button>
+
+
+                <button
+                    class="btn btn-orange"
+                    onclick="transaksiPage()"
+                >
+                    ↩️ Kembali
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+
+}
 function pengembalianPage() {
 
     document.getElementById("app").innerHTML = `
