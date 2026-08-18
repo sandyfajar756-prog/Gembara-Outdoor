@@ -1,0 +1,1954 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gembara Outdoor</title>
+
+<style>
+
+:root{
+    --hijau:#215E61;
+    --orange:#FF9E20;
+    --bg:#F4F7F6;
+    --putih:#FFFFFF;
+    --text:#243536;
+    --muted:#718080;
+    --border:#DDE5E4;
+    --merah:#D64545;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+}
+
+/* HEADER */
+
+header{
+    background:var(--hijau);
+    color:white;
+    padding:18px 20px;
+}
+
+.header-inner{
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo-icon{
+    width:45px;
+    height:45px;
+    border-radius:12px;
+    background:var(--orange);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+}
+
+.logo h1{
+    font-size:21px;
+}
+
+.logo p{
+    font-size:12px;
+    opacity:.8;
+    margin-top:3px;
+}
+
+/* NAV */
+
+nav{
+    background:white;
+    border-bottom:1px solid var(--border);
+    overflow:auto;
+}
+
+.nav-inner{
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    gap:5px;
+    padding:9px 12px;
+}
+
+nav button{
+    border:none;
+    background:transparent;
+    padding:11px 14px;
+    border-radius:9px;
+    cursor:pointer;
+    color:var(--text);
+    white-space:nowrap;
+    font-size:14px;
+}
+
+nav button:hover{
+    background:#EAF1F1;
+}
+
+nav button.active{
+    background:var(--hijau);
+    color:white;
+}
+
+/* MAIN */
+
+main{
+    max-width:1100px;
+    margin:auto;
+    padding:20px 15px 50px;
+}
+
+/* CARD */
+
+.card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:18px;
+    margin-bottom:15px;
+    box-shadow:0 3px 10px rgba(0,0,0,.04);
+}
+
+.card h2{
+    font-size:20px;
+    margin-bottom:6px;
+}
+
+.card h3{
+    margin-bottom:12px;
+}
+
+.subtitle{
+    color:var(--muted);
+    font-size:13px;
+    margin-bottom:15px;
+}
+
+/* STAT */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin-bottom:15px;
+}
+
+.stat{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:17px;
+}
+
+.stat-icon{
+    font-size:24px;
+    margin-bottom:10px;
+}
+
+.stat-label{
+    font-size:13px;
+    color:var(--muted);
+}
+
+.stat-value{
+    font-size:27px;
+    font-weight:bold;
+    margin-top:5px;
+    color:var(--hijau);
+}
+
+/* BUTTON */
+
+.btn{
+    border:none;
+    border-radius:9px;
+    padding:11px 15px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.btn-primary{
+    background:var(--hijau);
+    color:white;
+}
+
+.btn-primary:hover{
+    background:#17494b;
+}
+
+.btn-orange{
+    background:var(--orange);
+    color:white;
+}
+
+.btn-orange:hover{
+    background:#e98d12;
+}
+
+.btn-danger{
+    background:var(--merah);
+    color:white;
+}
+
+/* FORM */
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.form-group{
+    margin-bottom:12px;
+}
+
+.form-group.full{
+    grid-column:1/-1;
+}
+
+label{
+    display:block;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:5px;
+}
+
+input,
+select{
+    width:100%;
+    padding:11px;
+    border:1px solid var(--border);
+    border-radius:8px;
+    outline:none;
+    background:white;
+}
+
+input:focus,
+select:focus{
+    border-color:var(--hijau);
+}
+
+/* TABLE */
+
+.table-wrap{
+    overflow:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:650px;
+}
+
+th{
+    background:#F1F5F4;
+    text-align:left;
+    padding:11px;
+    font-size:13px;
+}
+
+td{
+    padding:11px;
+    border-bottom:1px solid var(--border);
+    font-size:13px;
+}
+
+.status{
+    display:inline-block;
+    padding:5px 9px;
+    border-radius:20px;
+    font-size:11px;
+    font-weight:bold;
+}
+
+.status-ready{
+    background:#E4F2EE;
+    color:var(--hijau);
+}
+
+.status-rented{
+    background:#FFF0D9;
+    color:#B66A00;
+}
+
+.status-maintenance{
+    background:#FFE3E3;
+    color:#B52C2C;
+}
+
+/* QUICK MENU */
+
+.quick-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+}
+
+.quick{
+    border:1px solid var(--border);
+    background:white;
+    padding:18px;
+    border-radius:12px;
+    cursor:pointer;
+}
+
+.quick:hover{
+    border-color:var(--orange);
+}
+
+.quick-icon{
+    font-size:27px;
+    margin-bottom:10px;
+}
+
+.quick-title{
+    font-weight:bold;
+}
+
+.quick-desc{
+    font-size:12px;
+    color:var(--muted);
+    margin-top:4px;
+}
+
+/* NOTICE */
+
+.notice{
+    background:#FFF7EA;
+    border-left:4px solid var(--orange);
+    padding:12px;
+    border-radius:7px;
+    font-size:13px;
+    margin-bottom:12px;
+}
+
+/* EMPTY */
+
+.empty{
+    padding:25px;
+    text-align:center;
+    color:var(--muted);
+}
+
+/* MODAL */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:15px;
+    z-index:99;
+}
+
+.modal-box{
+    background:white;
+    width:100%;
+    max-width:500px;
+    max-height:90vh;
+    overflow:auto;
+    border-radius:15px;
+    padding:20px;
+}
+
+.modal-header{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:15px;
+}
+
+.close{
+    border:none;
+    background:#eee;
+    border-radius:50%;
+    width:30px;
+    height:30px;
+    cursor:pointer;
+}
+
+/* NOTA */
+
+.nota{
+    max-width:420px;
+    margin:auto;
+    background:white;
+    padding:25px;
+}
+
+.nota-header{
+    text-align:center;
+    border-bottom:2px dashed #222;
+    padding-bottom:15px;
+    margin-bottom:15px;
+}
+
+.nota-header h1{
+    color:var(--hijau);
+    font-size:22px;
+}
+
+.nota-row{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    margin:8px 0;
+    font-size:13px;
+}
+
+.nota-total{
+    border-top:2px dashed #222;
+    margin-top:15px;
+    padding-top:12px;
+}
+
+.nota-total .grand{
+    font-size:21px;
+    font-weight:bold;
+}
+
+.nota-footer{
+    text-align:center;
+    margin-top:20px;
+    font-size:12px;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    color:var(--muted);
+    padding:20px;
+    font-size:12px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:800px){
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .quick-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+@media(max-width:550px){
+
+    .header-inner{
+        align-items:flex-start;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .quick-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-group.full{
+        grid-column:auto;
+    }
+
+    main{
+        padding:15px 10px 40px;
+    }
+
+}
+
+/* PRINT */
+
+@media print{
+
+    body *{
+        visibility:hidden;
+    }
+
+    #printArea,
+    #printArea *{
+        visibility:visible;
+    }
+
+    #printArea{
+        position:absolute;
+        left:0;
+        top:0;
+        width:100%;
+    }
+
+    .no-print{
+        display:none!important;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+<div class="header-inner">
+
+<div class="logo">
+
+<div class="logo-icon">
+🏕️
+</div>
+
+<div>
+
+<h1>GEMBARA OUTDOOR</h1>
+
+<p>Rental Perlengkapan Outdoor</p>
+
+</div>
+
+</div>
+
+</div>
+
+</header>
+
+
+<!-- NAV -->
+
+<nav>
+
+<div class="nav-inner">
+
+<button class="active"
+onclick="page('dashboard',this)">
+🏠 Dashboard
+</button>
+
+<button
+onclick="page('inventaris',this)">
+📦 Inventaris
+</button>
+
+<button
+onclick="page('transaksi',this)">
+🧾 Transaksi
+</button>
+
+<button
+onclick="page('pelanggan',this)">
+👤 Pelanggan
+</button>
+
+</div>
+
+</nav>
+
+
+<!-- APP -->
+
+<main id="app"></main>
+
+
+<!-- PRINT AREA -->
+
+<div id="printArea"></div>
+
+
+<!-- MODAL -->
+
+<div id="modal"
+class="modal">
+
+<div class="modal-box">
+
+<div class="modal-header">
+
+<h3 id="modalTitle">
+Tambah Barang
+</h3>
+
+<button
+class="close"
+onclick="closeModal()">
+×
+</button>
+
+</div>
+
+<div id="modalContent"></div>
+
+</div>
+
+</div>
+
+
+<footer>
+
+Gembara Outdoor © 2026
+<br>
+Rental Perlengkapan Outdoor
+
+</footer>
+
+
+
+<script>
+
+/* =====================================================
+   DATABASE OFFLINE
+===================================================== */
+
+let DB = JSON.parse(
+localStorage.getItem("GEMBARA_DB")
+) || {
+
+barang:[
+
+{
+kode:"GO-T001",
+nama:"Tenda 2 Orang",
+kategori:"Tenda",
+harga:25000,
+kondisi:"Baik",
+status:"Tersedia"
+},
+
+{
+kode:"GO-C001",
+nama:"Carrier 60L",
+kategori:"Carrier",
+harga:20000,
+kondisi:"Baik",
+status:"Tersedia"
+},
+
+{
+kode:"GO-H001",
+nama:"Hydropack",
+kategori:"Hydropack",
+harga:10000,
+kondisi:"Baik",
+status:"Tersedia"
+},
+
+{
+kode:"GO-K001",
+nama:"Kompor Camping",
+kategori:"Kompor",
+harga:10000,
+kondisi:"Baik",
+status:"Tersedia"
+},
+
+{
+kode:"GO-S001",
+nama:"Sepatu Tracking",
+kategori:"Sepatu",
+harga:25000,
+kondisi:"Baik",
+status:"Tersedia"
+}
+
+],
+
+pelanggan:[],
+
+transaksi:[]
+
+};
+
+
+/* =====================================================
+   SAVE DATABASE
+===================================================== */
+
+function save(){
+
+localStorage.setItem(
+"GEMBARA_DB",
+JSON.stringify(DB)
+);
+
+}
+
+
+/* =====================================================
+   RUPIAH
+===================================================== */
+
+function rupiah(value){
+
+return "Rp " +
+Number(value || 0)
+.toLocaleString("id-ID");
+
+}
+
+
+/* =====================================================
+   ID TRANSAKSI
+===================================================== */
+
+function generateTransaction(){
+
+return "GO-" +
+Date.now()
+.toString()
+.slice(-7);
+
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+function page(name,button){
+
+document
+.querySelectorAll("nav button")
+.forEach(b=>{
+b.classList.remove("active");
+});
+
+if(button){
+
+button.classList.add("active");
+
+}
+
+if(name==="dashboard"){
+dashboard();
+}
+
+if(name==="inventaris"){
+inventaris();
+}
+
+if(name==="transaksi"){
+transaksi();
+}
+
+if(name==="pelanggan"){
+pelanggan();
+}
+
+}
+
+
+/* =====================================================
+   DASHBOARD
+===================================================== */
+
+function dashboard(){
+
+let total=DB.barang.length;
+
+let tersedia=DB.barang.filter(
+b=>b.status==="Tersedia"
+).length;
+
+let disewa=DB.barang.filter(
+b=>b.status==="Disewa"
+).length;
+
+let maintenance=DB.barang.filter(
+b=>b.status==="Maintenance"
+).length;
+
+let omzet=DB.transaksi.reduce(
+(sum,t)=>sum+t.total,
+0
+);
+
+
+document.getElementById("app").innerHTML=`
+
+<h2 style="margin-bottom:5px">
+Dashboard
+</h2>
+
+<p class="subtitle">
+Selamat datang di Gembara Outdoor.
+</p>
+
+
+<div class="stats">
+
+<div class="stat">
+
+<div class="stat-icon">
+📦
+</div>
+
+<div class="stat-label">
+Total Alat
+</div>
+
+<div class="stat-value">
+${total}
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-icon">
+🟢
+</div>
+
+<div class="stat-label">
+Tersedia
+</div>
+
+<div class="stat-value">
+${tersedia}
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-icon">
+🟠
+</div>
+
+<div class="stat-label">
+Sedang Disewa
+</div>
+
+<div class="stat-value">
+${disewa}
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-icon">
+🔧
+</div>
+
+<div class="stat-label">
+Maintenance
+</div>
+
+<div class="stat-value">
+${maintenance}
+</div>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>💰 Total Nilai Transaksi</h3>
+
+<div style="
+font-size:28px;
+font-weight:bold;
+color:var(--hijau);
+">
+
+${rupiah(omzet)}
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>⚡ Menu Cepat</h3>
+
+<div class="quick-grid">
+
+
+<div class="quick"
+onclick="page('transaksi')">
+
+<div class="quick-icon">
+🧾
+</div>
+
+<div class="quick-title">
+Transaksi Baru
+</div>
+
+<div class="quick-desc">
+Buat penyewaan baru
+</div>
+
+</div>
+
+
+<div class="quick"
+onclick="page('inventaris')">
+
+<div class="quick-icon">
+📦
+</div>
+
+<div class="quick-title">
+Inventaris
+</div>
+
+<div class="quick-desc">
+Kelola perlengkapan
+</div>
+
+</div>
+
+
+<div class="quick"
+onclick="page('pelanggan')">
+
+<div class="quick-icon">
+👤
+</div>
+
+<div class="quick-title">
+Pelanggan
+</div>
+
+<div class="quick-desc">
+Data pelanggan
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>🧾 Transaksi Terakhir</h3>
+
+${
+DB.transaksi.length===0
+
+?
+
+`<div class="empty">
+Belum ada transaksi.
+</div>`
+
+:
+
+DB.transaksi
+.slice(-5)
+.reverse()
+.map(t=>`
+
+<div style="
+padding:12px 0;
+border-bottom:1px solid var(--border);
+">
+
+<strong>${t.nomor}</strong>
+
+<br>
+
+${t.pelanggan}
+
+<br>
+
+<span style="color:var(--hijau)">
+${rupiah(t.total)}
+</span>
+
+</div>
+
+`).join("")
+
+}
+
+</div>
+
+`;
+
+}
+
+
+/* =====================================================
+   INVENTARIS
+===================================================== */
+
+function inventaris(){
+
+document.getElementById("app").innerHTML=`
+
+<div class="card">
+
+<h2>📦 Inventaris</h2>
+
+<p class="subtitle">
+Daftar seluruh perlengkapan Gembara Outdoor.
+</p>
+
+<button
+class="btn btn-primary"
+onclick="openAddItem()">
+
++ Tambah Barang
+
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Kode</th>
+<th>Nama Barang</th>
+<th>Kategori</th>
+<th>Harga/Hari</th>
+<th>Kondisi</th>
+<th>Status</th>
+
+</tr>
+
+</thead>
+
+
+<tbody>
+
+${
+DB.barang.map(b=>`
+
+<tr>
+
+<td>
+<strong>${b.kode}</strong>
+</td>
+
+<td>
+${b.nama}
+</td>
+
+<td>
+${b.kategori}
+</td>
+
+<td>
+${rupiah(b.harga)}
+</td>
+
+<td>
+${b.kondisi}
+</td>
+
+<td>
+
+<span class="status ${
+b.status==="Tersedia"
+?
+"status-ready"
+:
+b.status==="Disewa"
+?
+"status-rented"
+:
+"status-maintenance"
+}">
+
+${b.status}
+
+</span>
+
+</td>
+
+</tr>
+
+`).join("")
+}
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+
+/* =====================================================
+   ADD ITEM
+===================================================== */
+
+function openAddItem(){
+
+document.getElementById("modalTitle")
+.innerText="Tambah Barang";
+
+
+document.getElementById("modalContent")
+.innerHTML=`
+
+<div class="form-group">
+
+<label>Kode Barang</label>
+
+<input
+id="newKode"
+placeholder="Contoh: GO-T002">
+
+</div>
+
+
+<div class="form-group">
+
+<label>Nama Barang</label>
+
+<input
+id="newNama"
+placeholder="Contoh: Tenda 4 Orang">
+
+</div>
+
+
+<div class="form-group">
+
+<label>Kategori</label>
+
+<select id="newKategori">
+
+<option>Tenda</option>
+<option>Carrier</option>
+<option>Hydropack</option>
+<option>Kompor</option>
+<option>Sepatu</option>
+<option>Jaket</option>
+<option>Tracking Pole</option>
+<option>Lainnya</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Harga Sewa / Hari</label>
+
+<input
+id="newHarga"
+type="number"
+placeholder="25000">
+
+</div>
+
+
+<div class="form-group">
+
+<label>Kondisi</label>
+
+<select id="newKondisi">
+
+<option>Baik</option>
+<option>Perlu Dicek</option>
+<option>Rusak Ringan</option>
+
+</select>
+
+</div>
+
+
+<button
+class="btn btn-primary"
+onclick="saveItem()">
+
+Simpan Barang
+
+</button>
+
+`;
+
+openModal();
+
+}
+
+
+function saveItem(){
+
+let kode=
+document.getElementById("newKode").value.trim();
+
+let nama=
+document.getElementById("newNama").value.trim();
+
+let kategori=
+document.getElementById("newKategori").value;
+
+let harga=
+Number(
+document.getElementById("newHarga").value
+);
+
+let kondisi=
+document.getElementById("newKondisi").value;
+
+
+if(!kode || !nama || !harga){
+
+alert(
+"Kode, nama, dan harga wajib diisi."
+);
+
+return;
+
+}
+
+
+if(DB.barang.some(
+b=>b.kode===kode
+)){
+
+alert(
+"Kode barang sudah digunakan."
+);
+
+return;
+
+}
+
+
+DB.barang.push({
+
+kode,
+nama,
+kategori,
+harga,
+kondisi,
+status:"Tersedia"
+
+});
+
+
+save();
+
+closeModal();
+
+inventaris();
+
+}
+
+
+/* =====================================================
+   TRANSAKSI
+===================================================== */
+
+function transaksi(){
+
+let tersedia=
+DB.barang.filter(
+b=>b.status==="Tersedia"
+);
+
+
+document.getElementById("app").innerHTML=`
+
+<div class="card">
+
+<h2>🧾 Transaksi Rental</h2>
+
+<p class="subtitle">
+Buat transaksi penyewaan baru.
+</p>
+
+
+<div class="form-grid">
+
+
+<div class="form-group">
+
+<label>
+Nama Pelanggan
+</label>
+
+<input
+id="trxNama"
+placeholder="Nama lengkap">
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+No. HP
+</label>
+
+<input
+id="trxHP"
+placeholder="08xxxxxxxxxx">
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Tanggal Sewa
+</label>
+
+<input
+id="trxMulai"
+type="date">
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Tanggal Kembali
+</label>
+
+<input
+id="trxKembali"
+type="date">
+
+</div>
+
+
+<div class="form-group full">
+
+<label>
+Barang
+</label>
+
+<select id="trxBarang">
+
+${
+tersedia.length===0
+
+?
+
+`<option>
+Tidak ada barang tersedia
+</option>`
+
+:
+
+tersedia.map(b=>`
+
+<option value="${b.kode}">
+
+${b.kode} —
+${b.nama} —
+${rupiah(b.harga)}/hari
+
+</option>
+
+`).join("")
+
+}
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Jumlah Hari
+</label>
+
+<input
+id="trxHari"
+type="number"
+min="1"
+value="1">
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+DP / Pembayaran
+</label>
+
+<input
+id="trxDP"
+type="number"
+min="0"
+value="0">
+
+</div>
+
+
+</div>
+
+
+<button
+class="btn btn-primary"
+onclick="buatTransaksi()">
+
+💾 Simpan Transaksi
+
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="notice">
+
+<strong>Catatan:</strong>
+
+Setelah transaksi disimpan,
+barang otomatis berubah menjadi
+<strong>Disewa</strong>.
+
+</div>
+
+</div>
+
+`;
+
+}
+
+
+/* =====================================================
+   CREATE TRANSACTION
+===================================================== */
+
+function buatTransaksi(){
+
+let nama=
+document.getElementById("trxNama")
+.value.trim();
+
+let hp=
+document.getElementById("trxHP")
+.value.trim();
+
+let mulai=
+document.getElementById("trxMulai").value;
+
+let kembali=
+document.getElementById("trxKembali").value;
+
+let kode=
+document.getElementById("trxBarang").value;
+
+let hari=
+Number(
+document.getElementById("trxHari").value
+);
+
+let dp=
+Number(
+document.getElementById("trxDP").value
+);
+
+
+if(!nama){
+
+alert(
+"Nama pelanggan wajib diisi."
+);
+
+return;
+
+}
+
+
+let barang=
+DB.barang.find(
+b=>b.kode===kode
+);
+
+
+if(!barang){
+
+alert(
+"Barang tidak tersedia."
+);
+
+return;
+
+}
+
+
+if(hari<1){
+
+alert(
+"Jumlah hari minimal 1."
+);
+
+return;
+
+}
+
+
+let total=
+barang.harga*hari;
+
+
+let nomor=
+generateTransaction();
+
+
+let transaksi={
+
+nomor,
+
+pelanggan:nama,
+
+hp,
+
+mulai,
+
+kembali,
+
+barang:[{
+
+kode:barang.kode,
+
+nama:barang.nama,
+
+harga:barang.harga,
+
+hari
+
+}],
+
+total,
+
+dp,
+
+sisa:Math.max(
+total-dp,
+0
+),
+
+status:"Disewa",
+
+dibuat:
+new Date()
+.toLocaleString("id-ID")
+
+};
+
+
+DB.transaksi.push(
+transaksi
+);
+
+
+barang.status="Disewa";
+
+
+DB.pelanggan.push({
+
+nama,
+
+hp
+
+});
+
+
+save();
+
+
+cetakNota(
+transaksi
+);
+
+}
+
+
+/* =====================================================
+   PELANGGAN
+===================================================== */
+
+function pelanggan(){
+
+document.getElementById("app").innerHTML=`
+
+<div class="card">
+
+<h2>👤 Pelanggan</h2>
+
+<p class="subtitle">
+Data pelanggan Gembara Outdoor.
+</p>
+
+</div>
+
+
+<div class="card">
+
+${
+DB.pelanggan.length===0
+
+?
+
+`<div class="empty">
+Belum ada data pelanggan.
+</div>`
+
+:
+
+`<div class="table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Nama</th>
+<th>No. HP</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+${
+DB.pelanggan.map(p=>`
+
+<tr>
+
+<td>
+${p.nama}
+</td>
+
+<td>
+${p.hp || "-"}
+</td>
+
+</tr>
+
+`).join("")
+}
+
+</tbody>
+
+</table>
+
+</div>`
+
+}
+
+</div>
+
+`;
+
+}
+
+
+/* =====================================================
+   CETAK NOTA
+===================================================== */
+
+function cetakNota(t){
+
+let barangHTML=
+t.barang.map(b=>`
+
+<div class="nota-row">
+
+<span>
+
+${b.kode}<br>
+${b.nama}<br>
+${b.hari} hari × ${rupiah(b.harga)}
+
+</span>
+
+<strong>
+
+${rupiah(
+b.harga*b.hari
+)}
+
+</strong>
+
+</div>
+
+`).join("");
+
+
+document.getElementById("printArea")
+.innerHTML=`
+
+<div class="nota">
+
+<div class="nota-header">
+
+<h1>
+GEMBARA OUTDOOR
+</h1>
+
+<p>
+RENTAL PERLENGKAPAN OUTDOOR
+</p>
+
+</div>
+
+
+<div class="nota-row">
+
+<span>
+No. Transaksi
+</span>
+
+<strong>
+${t.nomor}
+</strong>
+
+</div>
+
+
+<div class="nota-row">
+
+<span>
+Pelanggan
+</span>
+
+<strong>
+${t.pelanggan}
+</strong>
+
+</div>
+
+
+<div class="nota-row">
+
+<span>
+No. HP
+</span>
+
+<strong>
+${t.hp || "-"}
+</strong>
+
+</div>
+
+
+<div class="nota-row">
+
+<span>
+Tanggal Sewa
+</span>
+
+<strong>
+${t.mulai || "-"}
+</strong>
+
+</div>
+
+
+<div class="nota-row">
+
+<span>
+Tanggal Kembali
+</span>
+
+<strong>
+${t.kembali || "-"}
+</strong>
+
+</div>
+
+
+<hr style="
+margin:15px 0;
+border:none;
+border-top:1px dashed #222;
+">
+
+
+${barangHTML}
+
+
+<div class="nota-total">
+
+<div class="nota-row">
+
+<span>
+TOTAL
+</span>
+
+<strong class="grand">
+
+${rupiah(t.total)}
+
+</strong>
+
+</div>
+
+
+<div class="nota-row">
+
+<span>
+DP
+</span>
+
+<strong>
+
+${rupiah(t.dp)}
+
+</strong>
+
+</div>
+
+
+<div class="nota-row">
+
+<span>
+SISA
+</span>
+
+<strong>
+
+${rupiah(t.sisa)}
+
+</strong>
+
+</div>
+
+</div>
+
+
+<div class="nota-footer">
+
+Terima kasih sudah menyewa
+di Gembara Outdoor 🙏
+
+<br><br>
+
+Jaga barang rental seperti milik sendiri.
+
+</div>
+
+</div>
+
+
+<div class="no-print"
+style="
+text-align:center;
+margin:20px;
+">
+
+<button
+class="btn btn-primary"
+onclick="window.print()">
+
+🖨️ Cetak Nota
+
+</button>
+
+
+<button
+class="btn btn-orange"
+onclick="
+document.getElementById('printArea').innerHTML='';
+dashboard();
+">
+
+Kembali
+
+</button>
+
+</div>
+
+`;
+
+
+document.getElementById("app")
+.style.display="none";
+
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+function openModal(){
+
+document.getElementById("modal")
+.style.display="flex";
+
+}
+
+
+function closeModal(){
+
+document.getElementById("modal")
+.style.display="none";
+
+}
+
+
+/* =====================================================
+   START
+===================================================== */
+
+dashboard();
+
+</script>
+
+</body>
+</html>
