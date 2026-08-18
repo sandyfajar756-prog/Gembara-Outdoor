@@ -1118,18 +1118,31 @@ function inventarisPage() {
 
                                     <td>
 
-                                        <button
-                                            class="btn btn-danger"
-                                            style="
-                                            padding:7px 9px;
-                                            font-size:12px;
-                                            "
-                                            onclick="hapusBarang(${index})"
-                                        >
+                                      <div style="display:flex;gap:5px;">
 
-                                            Hapus
+    <button
+        class="btn btn-primary"
+        style="
+        padding:7px 9px;
+        font-size:12px;
+        "
+        onclick="editBarang(${index})"
+    >
+        Edit
+    </button>
 
-                                        </button>
+    <button
+        class="btn btn-danger"
+        style="
+        padding:7px 9px;
+        font-size:12px;
+        "
+        onclick="hapusBarang(${index})"
+    >
+        Hapus
+    </button>
+
+</div>
 
                                     </td>
 
