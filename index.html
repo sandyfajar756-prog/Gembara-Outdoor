@@ -1601,7 +1601,81 @@ function editBarang(index) {
     openModal();
 
 }
-function hapusBarang(index) {
+/* =====================================================
+   SIMPAN PERUBAHAN BARANG
+===================================================== */
+
+function simpanEditBarang(index) {
+
+    const barang = DB.barang[index];
+
+    if (!barang) {
+        alert("Data barang tidak ditemukan.");
+        return;
+    }
+
+    const kode =
+        document.getElementById("editKodeBarang").value.trim();
+
+    const nama =
+        document.getElementById("editNamaBarang").value.trim();
+
+    const harga =
+        Number(
+            document.getElementById("editHargaBarang").value || 0
+        );
+
+    const stok =
+        Number(
+            document.getElementById("editStokBarang").value || 0
+        );
+
+    const kondisi =
+        document.getElementById("editKondisiBarang").value;
+
+
+    if (!kode || !nama) {
+
+        alert("Kode dan nama barang wajib diisi.");
+
+        return;
+
+    }
+
+
+    if (stok < Number(barang.disewa || 0)) {
+
+        alert(
+            "Stok tidak boleh lebih kecil dari barang yang sedang disewa."
+        );
+
+        return;
+
+    }
+
+
+    barang.kode = kode;
+
+    barang.nama = nama;
+
+    barang.harga = harga;
+
+    barang.stok = stok;
+
+    barang.kondisi = kondisi;
+
+
+    saveDatabase();
+
+    closeModal();
+
+    inventarisPage();
+
+
+    alert("✅ Data barang berhasil diperbarui.");
+
+}
+    function hapusBarang(index) {
 
     const barang =
         DB.barang[index];
