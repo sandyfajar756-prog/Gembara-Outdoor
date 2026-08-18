@@ -856,53 +856,73 @@ function dashboardPage() {
 
                 ?
 
-                DB.transaksi
-                .slice(-5)
-                .reverse()
-                .map(function(t) {
+    DB.transaksi
+.slice(-5)
+.reverse()
+.map(function(t, index) {
 
-                    return `
+    return `
 
-                    <div
-                        style="
-                        padding:10px 0;
-                        border-bottom:1px solid var(--border);
-                        "
-                    >
+    <div
+        style="
+        padding:12px 0;
+        border-bottom:1px solid var(--border);
+        "
+    >
 
-                        <b>
-                            ${escapeHTML(t.nomor)}
-                        </b>
+        <div
+            onclick="reviewNota(DB.transaksi[${DB.transaksi.indexOf(t)}])"
+            style="
+            cursor:pointer;
+            "
+        >
 
-                        -
+            <b>
+                ${escapeHTML(t.nomor)}
+            </b>
 
-                        ${escapeHTML(t.pelanggan)}
+            -
 
-                        -
+            ${escapeHTML(t.pelanggan)}
 
-                        <b>
-                            ${rupiah(t.total)}
-                        </b>
+            -
 
-                        <br>
+            <b>
+                ${rupiah(t.total)}
+            </b>
 
-                        <span class="subtext">
+            <br>
 
-                            ${formatDate(t.mulai)}
-                            s/d
-                            ${formatDate(t.kembali)}
+            <span class="subtext">
 
-                            ·
+                ${formatDate(t.mulai)}
+                s/d
+                ${formatDate(t.kembali)}
 
-                            ${escapeHTML(t.pembayaran)}
+                ·
 
-                        </span>
+                ${escapeHTML(t.pembayaran)}
 
-                    </div>
+            </span>
 
-                    `;
+            <br><br>
 
-                })
+            <span
+                class="badge badge-ready"
+                style="
+                cursor:pointer;
+                "
+            >
+                👁️ Lihat Review Nota
+            </span>
+
+        </div>
+
+    </div>
+
+    `;
+
+})
                 .join("")
 
                 :
