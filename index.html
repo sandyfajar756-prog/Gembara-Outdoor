@@ -1497,6 +1497,110 @@ function simpanBarang() {
    HAPUS BARANG
 ===================================================== */
 
+    /* =====================================================
+   EDIT BARANG
+===================================================== */
+
+function editBarang(index) {
+
+    const barang = DB.barang[index];
+
+    if (!barang) {
+        alert("Data barang tidak ditemukan.");
+        return;
+    }
+
+    document.getElementById("modalTitle").textContent =
+        "Edit Barang Inventaris";
+
+    document.getElementById("modalBody").innerHTML = `
+
+        <div class="notice">
+            ✏️ Silakan perbaiki data barang.
+        </div>
+
+        <div class="form-group">
+
+            <label>Kode Barang</label>
+
+            <input
+                id="editKodeBarang"
+                value="${escapeHTML(barang.kode)}"
+            >
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Nama Barang</label>
+
+            <input
+                id="editNamaBarang"
+                value="${escapeHTML(barang.nama)}"
+            >
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Harga Sewa / Hari</label>
+
+            <input
+                id="editHargaBarang"
+                type="number"
+                min="0"
+                value="${Number(barang.harga || 0)}"
+            >
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Jumlah Stok</label>
+
+            <input
+                id="editStokBarang"
+                type="number"
+                min="${Number(barang.disewa || 0)}"
+                value="${Number(barang.stok || 0)}"
+            >
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Kondisi</label>
+
+            <select id="editKondisiBarang">
+
+                <option ${barang.kondisi === "Baik" ? "selected" : ""}>
+                    Baik
+                </option>
+
+                <option ${barang.kondisi === "Perlu Dicek" ? "selected" : ""}>
+                    Perlu Dicek
+                </option>
+
+                <option ${barang.kondisi === "Maintenance" ? "selected" : ""}>
+                    Maintenance
+                </option>
+
+            </select>
+
+        </div>
+
+        <button
+            class="btn btn-primary"
+            onclick="simpanEditBarang(${index})"
+        >
+            💾 Simpan Perubahan
+        </button>
+
+    `;
+
+    openModal();
+
+}
 function hapusBarang(index) {
 
     const barang =
